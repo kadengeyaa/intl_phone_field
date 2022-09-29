@@ -23,6 +23,10 @@ class PickerDialogStyle {
 
   final double? width;
 
+  final ShapeBorder? shape;
+
+  final TextAlignVertical? textAlignVertical;
+
   PickerDialogStyle({
     this.backgroundColor,
     this.countryCodeStyle,
@@ -34,6 +38,8 @@ class PickerDialogStyle {
     this.searchFieldInputDecoration,
     this.searchFieldPadding,
     this.width,
+    this.shape,
+    this.textAlignVertical,
   });
 }
 
@@ -84,6 +90,7 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
               ? (mediaWidth - width) / 2
               : defaultHorizontalPadding),
       backgroundColor: widget.style?.backgroundColor,
+      shape: widget.style?.shape,
       child: Container(
         padding: widget.style?.padding ?? EdgeInsets.all(10),
         child: Column(
@@ -91,6 +98,7 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
             Padding(
               padding: widget.style?.searchFieldPadding ?? EdgeInsets.all(0),
               child: TextField(
+                textAlignVertical: width.style?.textAlignVertical,
                 cursorColor: widget.style?.searchFieldCursorColor,
                 decoration: widget.style?.searchFieldInputDecoration ??
                     InputDecoration(
